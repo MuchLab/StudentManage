@@ -1,0 +1,21 @@
+﻿
+<div class="text-center">
+    <h1>@ViewBag.Title</h1>
+</div>
+<div class="layui-form">
+    <table class="layui-table text-center layui-side-scroll" lay-skin="line">
+        <thead class="layui-table-header">
+        <tr>
+            <th class="text-center">Id</th>
+            <th class="text-center">名字</th>
+            <th class="text-center">城市</th>
+            <th class="text-center">国家</th>
+            <th class="text-center" style="width:80px">级别</th>
+            <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody class="layui-table-body">
+        @Html.DisplayForModel()
+        </tbody>
+    </table>
+</div>

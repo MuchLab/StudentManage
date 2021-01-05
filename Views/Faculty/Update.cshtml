@@ -1,0 +1,91 @@
+﻿@using Homework06.Application.Models
+@model Homework06.Application.Models.Faculty
+<form class="layui-form" asp-action="Update">
+    <div class="layui-form-item">
+        <label asp-for="FirstName" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="FirstName" placeholder="请输入FirstName" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="LastName" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="LastName" placeholder="请输入LastName" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="City" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="City" placeholder="请输入City" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="State" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="State" placeholder="请输入City" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="State" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="Dept" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="Dept" placeholder="请输入部门" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="Dept" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="Rank" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <select asp-for="Rank" class="layui-select" asp-items="Html.GetEnumSelectList<Rank>()">
+                <option>请选择等级</option>
+            </select>
+        </div>
+        <span asp-validation-for="Rank" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="Salary" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="Salary" placeholder="请输入工资" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="Salary" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="Supervisor" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="Supervisor" placeholder="请输入上级" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="Supervisor" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="HireDate" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="HireDate" placeholder="请输入雇佣日期" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="HireDate" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="ZipCode" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="ZipCode" placeholder="请输入ZipCode" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="ZipCode" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+        </div>
+    </div>
+</form>
+@section Scripts
+{
+    <script>
+        layui.use('form', function () {
+            var form = layui.form;
+            form.render();
+        });
+    </script>
+
+}

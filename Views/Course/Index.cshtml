@@ -1,0 +1,19 @@
+﻿@section IndexNav{
+    <li class="layui-nav-item layui-nav-itemed">
+        <a asp-action="Add">添加课程</a>
+    </li>
+}
+<table class="layui-table text-center" lay-skin="line">
+    <thead>
+    <tr>
+        <th class="text-center">Id</th>
+        <th class="text-center">课程名称</th>
+        <th class="text-center">课程类型</th>
+        <th class="text-center">课程导航</th>
+        <th class="text-center">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    @Html.DisplayForModel()
+    </tbody>
+</table>

@@ -1,0 +1,16 @@
+﻿@using Homework06.Application.Models
+@model IEnumerable<Faculty>
+
+<select id="select" class="layui-select" style="width: 150px">
+    <option>请选择教师</option>
+    @foreach (var faculty in Model)
+    {
+        <option>@faculty.FirstName @faculty.LastName</option>
+    }
+</select>
+@section Scripts
+{
+    <script>
+
+    </script>
+}

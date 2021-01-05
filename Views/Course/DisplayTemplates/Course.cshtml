@@ -1,0 +1,18 @@
+﻿@model Homework06.Application.Models.Course
+<tr>
+    <td>@Model.Id</td>
+    <td>@Model.CrsDesc</td>
+    <td>@Model.CrsUnits</td>
+    <td>
+        <div>
+            <a asp-action="GetStudentsByCrsId" asp-route-crsId="@Model.Id" class="btn btn-primary">学生</a>
+            <a asp-action="GetFacultiesByCrsId" asp-route-crsId="@Model.Id" class="btn btn-primary ml-2">教师</a>
+        </div>
+    </td>
+    <td>
+        <div>
+            <a asp-action="Update" asp-route-id="@Model.Id" class="btn btn-success">编辑</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger ml-2">删除</a>
+        </div>
+    </td>
+</tr>

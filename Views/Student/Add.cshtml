@@ -1,0 +1,75 @@
+﻿@using Homework06.Application.Models
+@model Homework06.Application.Models.Student
+<form class="layui-form" asp-action="Add">
+    <div class="layui-form-item">
+        <label asp-for="FirstName" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="FirstName" placeholder="请输入FirstName" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="LastName" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="LastName" placeholder="请输入LastName" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="City" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="City" placeholder="请输入City" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="State" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="State" placeholder="请输入City" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="State" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="Class" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="Class" placeholder="请输入班级" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="Major" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="Major" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="Major" placeholder="请输入专业" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="Major" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="GPA" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="GPA" placeholder="请输入GPA" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="GPA" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="ZipCode" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="ZipCode" placeholder="请输入ZipCode" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="ZipCode" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+        </div>
+    </div>
+</form>
+@section Scripts
+{
+    <script>
+        layui.use('form', function () {
+            var form = layui.form;
+            form.render();
+        });
+    </script>
+
+}

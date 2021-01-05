@@ -1,0 +1,51 @@
+﻿@model CrsId
+@section IndexNav{
+    <li class="layui-nav-item layui-nav-itemed">
+        <a asp-action="Add">添加课程</a>
+    </li>
+}
+<div class="text-center">
+    <h1>@ViewBag.Title</h1>
+</div>
+<table class="layui-table text-center" lay-skin="line">
+    <thead>
+    <tr>
+        <th class="text-center">Id</th>
+        <th class="text-center">课程名称</th>
+        <th class="text-center">课程类型</th>
+        <th class="text-center">辅导教师</th>
+        <th class="text-center">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        foreach (var course in @Model.Courses)
+        {
+            <tr>
+                <td>@course.Id</td>
+                <td>@course.CrsDesc</td>
+                <td>@course.CrsUnits</td>
+                <td>
+                    @await Component.InvokeAsync("CourseFaculty", new { crsId = course.Id })
+                </td>
+                <td >
+                    <a asp-action="SelectCourse" asp-route-crsId="@course.Id" asp-route-stuId="@Model.Id" asp-route-facId="" class="btn btn-success">选课</a>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>
+@*@section Scripts{ 
+    <script>
+        layui.use('layer', function () { //独立版的layer无需执行这一句
+            var $ = layui.jquery, layer = layui.layer;
+            layer.open({
+              title: '在线调试'
+              , content: '可以填写任意的layer代码'
+
+            });
+        })
+          
+    </script>
+}*@

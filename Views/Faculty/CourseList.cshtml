@@ -1,0 +1,34 @@
+﻿@model CrsId
+@section IndexNav{
+    <li class="layui-nav-item layui-nav-itemed">
+        <a asp-action="Add">添加课程</a>
+    </li>
+}
+<div class="text-center">
+    <h1>@ViewBag.Title</h1>
+</div>
+<table class="layui-table text-center" lay-skin="line">
+    <thead>
+    <tr>
+        <th class="text-center">Id</th>
+        <th class="text-center">课程名称</th>
+        <th class="text-center">课程类型</th>
+        <th class="text-center">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    @{
+        foreach (var course in @Model.Courses)
+        {
+            <tr>
+                <td>@course.Id</td>
+                <td>@course.CrsDesc</td>
+                <td>@course.CrsUnits</td>
+                <td>
+                    <a asp-action="SelectCourse" asp-route-crsId="@course.Id" asp-route-facId="@Model.Id" class="btn btn-success">辅导</a>
+                </td>
+            </tr>
+        }
+    }
+    </tbody>
+</table>

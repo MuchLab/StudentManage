@@ -1,0 +1,117 @@
+﻿@model Homework06.Application.Models.Student
+<form class="layui-form" name="studentForm">
+    <div class="layui-form-item">
+        <label asp-for="FirstName" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="FirstName" placeholder="请输入FirstName" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="LastName" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="LastName" placeholder="请输入LastName" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="LastName" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="City" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="City" placeholder="请输入City" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="State" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="State" placeholder="请输入City" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="State" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="Class" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="Class" placeholder="请输入班级" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="Major" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="Major" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="Major" placeholder="请输入专业" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="Major" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="GPA" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="GPA" type="number" placeholder="请输入GPA" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="GPA" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <label asp-for="ZipCode" class="layui-form-label"></label>
+        <div class="layui-input-block">
+            <input asp-for="ZipCode" placeholder="请输入ZipCode" autocomplete="off" class="layui-input">
+        </div>
+        <span asp-validation-for="ZipCode" class="text-danger"></span>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="*">立即提交</button>
+        </div>
+    </div>
+</form>
+@section Scripts
+{
+
+    <script>
+        function createStudent(data) {
+            httpRequest = new XMLHttpRequest();
+
+            if (!httpRequest) {
+                alert('Giving up :( Cannot create an XMLHTTP instance');
+                return false;
+            }
+            httpRequest.onreadystatechange = alertContents;
+            httpRequest.open('POST', 'https://localhost:5001/api/students', true);
+            httpRequest.setRequestHeader('content-type', 'application/json');
+            httpRequest.send(JSON.stringify(data));
+        }
+
+        function alertContents() {
+            if (httpRequest.readyState === XMLHttpRequest.DONE) {
+                if (httpRequest.status === 204) {
+                    alert('Student is created');
+                } else {
+                    alert('There was a problem with the request.');
+                }
+            }
+        }
+
+        layui.use('form',
+            function() {
+                var form = layui.form;
+                form.render();
+                form.on('submit(*)',
+                    function(data) {
+                        //fetch("https://localhost:5001/api/students",
+                        //    {
+                        //        method: 'POST',
+                        //        body: JSON.stringify(data.field),
+                        //        headers: {
+                        //            'content-type': 'application/json'
+                        //        }
+                        //    })
+                        //    .then(res => res.json())
+                        //    .catch(error => console.error('Error:', error))
+                        //    .then(response => console.log('Success:', response));
+                        createStudent(data.field);
+                        return false;
+                    });
+
+            });
+
+    </script>
+
+}

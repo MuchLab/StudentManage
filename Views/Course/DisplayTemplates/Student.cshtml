@@ -1,0 +1,13 @@
+﻿@model Homework06.Application.Models.Student
+<tr>
+    <td>@Model.Id</td>
+    <td>@Model.FirstName @Model.LastName</td>
+    <td>@Model.City</td>
+    <td>@Model.State</td>
+    <td>@Model.Class</td>
+    <td>
+        <div>
+            <a asp-controller="Student" asp-action="Details" asp-route-id="@Model.Id" class="btn btn-primary">详情</a>
+        </div>
+    </td>
+</tr>

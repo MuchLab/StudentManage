@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Homework07</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/lib/layui/css/layui.css" rel="stylesheet" />
+    <style>
+        .header-bg-black {
+            background: black;
+        }
+    </style>
+</head>
+<body>
+    <div class="layui-layout-admin">
+        @* 头部 *@
+        <div class="layui-header header-bg-black">
+            <div class="layui-logo">HomeWork07</div>
+            <ul class="layui-nav layui-layout-left">
+                @RenderSection("IndexNav", false)
+            </ul>
+        </div>
+        @* 左侧 *@
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll">
+                <ul class="layui-nav layui-nav-tree">
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a asp-controller="Student" asp-action="Index">学生</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a asp-controller="Faculty" asp-action="Index">教师</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a asp-controller="Course" asp-action="Index">课程</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a asp-controller="StudentAjax" asp-action="Index">
+                            使用AJAX
+                            CRUD学生
+                        </a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="/chat">
+                            简易聊天室
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="layui-body mt-4">
+            <div class="container">
+                <main role="main">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+        @* 底部 *@
+        <div class="layui-footer">
+            <div style="text-align: center">2020 - Homework07</div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/lib/layui/layui.js" charset="utf-8"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+    @RenderSection("Scripts", required: false)
+    <script>
+        //注意：导航 依赖 element 模块，否则无法进行功能性操作
+        layui.use('element',
+            function () {
+                var element = layui.element;
+
+                //…
+            });
+    </script>
+</body>
+</html>
